@@ -1,0 +1,182 @@
+# Voyage — private deployment on this host, built from this fork's source.
+#
+# Unlike docker/docker-compose.yml (upstream's compose file, which pulls the
+# published freikin/dawarich image), this file builds the image locally from
+# the fork's own Dockerfile so future rebranding/rebase changes land on
+# rebuild without touching this file. Not part of upstream — safe from rebase
+# conflicts.
+#
+# Usage (from repo root):
+#   docker compose -f docker/docker-compose.production.yml --env-file docker/.env up -d --build
+
+networks:
+  voyage:
+
+services:
+  voyage_redis:
+    image: redis:7.4-alpine
+    container_name: voyage_redis
+    command: >
+      redis-server
+      --save 900 1
+      --save 300 10
+      --appendonly no
+    networks:
+      - voyage
+    volumes:
+      - voyage_shared:/data
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+
+  voyage_db:
+    image: postgis/postgis:17-3.5-alpine
+    shm_size: 1G
+    container_name: voyage_db
+    volumes:
+      - voyage_db_data:/var/lib/postgresql/data
+      - voyage_shared:/var/shared
+    networks:
+      - voyage
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set in docker/.env}
+      POSTGRES_DB: ${POSTGRES_DB:-voyage_production}
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-voyage_production}" ]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+
+  voyage_app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        RAILS_ENV: production
+    image: voyage:latest
+    container_name: voyage_app
+    volumes:
+      - voyage_public:/var/app/public
+      - voyage_watched:/var/app/tmp/imports/watched
+      - voyage_storage:/var/app/storage
+      - voyage_db_data:/dawarich_db_data
+    networks:
+      - voyage
+    ports:
+      # Bound to localhost only — nginx terminates TLS and proxies here.
+      - "127.0.0.1:${VOYAGE_APP_PORT:-3010}:3000"
+    stdin_open: true
+    tty: true
+    entrypoint: web-entrypoint.sh
+    command: ['bin/rails', 'server', '-p', '3000', '-b', '::']
+    restart: unless-stopped
+    environment:
+      RAILS_ENV: production
+      REDIS_URL: redis://voyage_redis:6379
+      DATABASE_HOST: voyage_db
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: ${POSTGRES_USER:-postgres}
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set in docker/.env}
+      DATABASE_NAME: ${POSTGRES_DB:-voyage_production}
+      APPLICATION_HOSTS: ${APPLICATION_HOSTS:-voyage.ddnds.com}
+      TIME_ZONE: ${TIME_ZONE:-America/New_York}
+      APPLICATION_PROTOCOL: ${APPLICATION_PROTOCOL:-https}
+      PROMETHEUS_EXPORTER_ENABLED: "false"
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE:?SECRET_KEY_BASE must be set in docker/.env}
+      RAILS_LOG_TO_STDOUT: "true"
+      SELF_HOSTED: "true"
+      STORE_GEODATA: "true"
+      WEB_CONCURRENCY: ${WEB_CONCURRENCY:-1}
+      OTP_ENCRYPTION_PRIMARY_KEY: ${OTP_ENCRYPTION_PRIMARY_KEY}
+      OTP_ENCRYPTION_DETERMINISTIC_KEY: ${OTP_ENCRYPTION_DETERMINISTIC_KEY}
+      OTP_ENCRYPTION_KEY_DERIVATION_SALT: ${OTP_ENCRYPTION_KEY_DERIVATION_SALT}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 100m
+        max-file: "5"
+    healthcheck:
+      # force_ssl (driven by APPLICATION_PROTOCOL=https, matching real traffic
+      # via nginx) redirects any request lacking X-Forwarded-Proto: https —
+      # including this in-container check — so it must send that header too.
+      test: [ "CMD-SHELL", "wget --header='X-Forwarded-Proto: https' -qO - http://127.0.0.1:3000/api/v1/health | grep -q '\"status\"\\s*:\\s*\"ok\"'" ]
+      interval: 10s
+      retries: 30
+      start_period: 30s
+      timeout: 10s
+    depends_on:
+      voyage_db:
+        condition: service_healthy
+        restart: true
+      voyage_redis:
+        condition: service_healthy
+        restart: true
+
+  voyage_sidekiq:
+    image: voyage:latest
+    container_name: voyage_sidekiq
+    volumes:
+      - voyage_public:/var/app/public
+      - voyage_watched:/var/app/tmp/imports/watched
+      - voyage_storage:/var/app/storage
+    networks:
+      - voyage
+    stdin_open: true
+    tty: true
+    entrypoint: sidekiq-entrypoint.sh
+    command: ['sidekiq']
+    restart: unless-stopped
+    environment:
+      RAILS_ENV: production
+      REDIS_URL: redis://voyage_redis:6379
+      DATABASE_HOST: voyage_db
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: ${POSTGRES_USER:-postgres}
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set in docker/.env}
+      DATABASE_NAME: ${POSTGRES_DB:-voyage_production}
+      APPLICATION_HOSTS: ${APPLICATION_HOSTS:-voyage.ddnds.com}
+      BACKGROUND_PROCESSING_CONCURRENCY: ${BACKGROUND_PROCESSING_CONCURRENCY:-3}
+      APPLICATION_PROTOCOL: ${APPLICATION_PROTOCOL:-https}
+      PROMETHEUS_EXPORTER_ENABLED: "false"
+      SECRET_KEY_BASE: ${SECRET_KEY_BASE:?SECRET_KEY_BASE must be set in docker/.env}
+      RAILS_LOG_TO_STDOUT: "true"
+      SELF_HOSTED: "true"
+      STORE_GEODATA: "true"
+      OTP_ENCRYPTION_PRIMARY_KEY: ${OTP_ENCRYPTION_PRIMARY_KEY}
+      OTP_ENCRYPTION_DETERMINISTIC_KEY: ${OTP_ENCRYPTION_DETERMINISTIC_KEY}
+      OTP_ENCRYPTION_KEY_DERIVATION_SALT: ${OTP_ENCRYPTION_KEY_DERIVATION_SALT}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 100m
+        max-file: "5"
+    healthcheck:
+      test: [ "CMD-SHELL", "pgrep -f sidekiq" ]
+      interval: 10s
+      retries: 30
+      start_period: 30s
+      timeout: 10s
+    depends_on:
+      voyage_db:
+        condition: service_healthy
+        restart: true
+      voyage_redis:
+        condition: service_healthy
+        restart: true
+      voyage_app:
+        condition: service_healthy
+        restart: true
+
+volumes:
+  voyage_db_data:
+  voyage_shared:
+  voyage_public:
+  voyage_watched:
+  voyage_storage:

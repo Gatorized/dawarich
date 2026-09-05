@@ -473,7 +473,7 @@ pl:
       tip_you_can_manage_your_family_members_and_privacy_settings: 'WSKAZÓWKA: Członkami rodziny i ustawieniami prywatności możesz zarządzać w dowolnym momencie z panelu rodziny.'
   home:
     index:
-      dawarich: Dawarich
+      dawarich: Voyage
       the_only_location_history_tracker_you_ll_ever_need: Jedyny tracker historii lokalizacji, którego naprawdę potrzebujesz.
       or: lub
       location_history_visualisation: Wizualizacja historii lokalizacji
@@ -811,7 +811,7 @@ pl:
       you_re_viewing_demo_data: Przeglądasz dane demonstracyjne.
       delete: Usuń
     shared:
-      dawarich: Dawarich
+      dawarich: Voyage
       try_dawarich_cloud: Wypróbuj Dawarich Cloud
       shared_with_dawarich: Udostępniono przez Dawarich
       map_your_own_journeys: Mapuj własne podróże.
@@ -821,7 +821,7 @@ pl:
       self_hostable: Self-hosted
       managed_cloud_no_setup: Chmura zarządzana - bez konfiguracji
       shared_on_dawarich: Udostępniono w Dawarich
-      dawarich_logo: Logo Dawarich
+      dawarich_logo: Logo Voyage
   map:
     onboarding_modal:
       invite_your_family: "Zaproś swoją rodzinę"
@@ -1741,9 +1741,9 @@ pl:
       poster: Plakat
       video: Film
     footer:
-      dawarich: Dawarich
+      dawarich: Voyage
     legal_footer:
-      dawarich: Dawarich
+      dawarich: Voyage
       made_and_hosted_in_europe: "Stworzone i hostowane w \U0001F1EA\U0001F1FA Europie"
       copyright: Copyright ©
       zeitflow_ug: ZeitFlow UG
@@ -1771,8 +1771,8 @@ pl:
       family: Rodzina
       my_data: Moje dane
       help: Pomoc
-      dawarich: Dawarich
-      dawarich_logo: Logo Dawarich
+      dawarich: Voyage
+      dawarich_logo: Logo Voyage
       get_started: Rozpocznij
       finish_setting_up_your_account: Dokończ konfigurację konta
       finish_signup: Dokończ rejestrację
@@ -2075,7 +2075,7 @@ pl:
       cities_visited: 'Odwiedzone miasta:'
       more: więcej
       powered_by: Napędzane przez
-      dawarich: Dawarich
+      dawarich: Voyage
       your_personal_memories_mapper: ", Twojego osobistego mapera wspomnień."
       day: Dzień
       distance: Dystans
@@ -2280,7 +2280,7 @@ pl:
         all_time_stats: Statystyki całego okresu
         total_distance: Całkowity dystans
         track_your_own_adventures_with: Śledź własne przygody z
-        dawarich: Dawarich
+        dawarich: Voyage
         your_personal_memories_mapper: "— Twoim osobistym maperem wspomnień."
         month: Miesiąc
         distance: Dystans

@@ -473,7 +473,7 @@ ca:
       tip_you_can_manage_your_family_members_and_privacy_settings: 'CONSELL: Pots gestionar els membres de la teva família i la configuració de privadesa en qualsevol moment des del teu tauler de la família.'
   home:
     index:
-      dawarich: Dawarich
+      dawarich: Voyage
       the_only_location_history_tracker_you_ll_ever_need: L'únic registre d'historial d'ubicacions que necessitaràs mai.
       or: o
       location_history_visualisation: Visualització de l'historial d'ubicacions
@@ -811,7 +811,7 @@ ca:
       you_re_viewing_demo_data: Estàs veient dades de demostració.
       delete: Suprimeix
     shared:
-      dawarich: Dawarich
+      dawarich: Voyage
       try_dawarich_cloud: Prova Dawarich Cloud
       shared_with_dawarich: Compartit amb Dawarich
       map_your_own_journeys: Mapeja els teus propis viatges.
@@ -821,7 +821,7 @@ ca:
       self_hostable: Autoallotjable
       managed_cloud_no_setup: Núvol gestionat — sense configuració
       shared_on_dawarich: Compartit a Dawarich
-      dawarich_logo: Logotip de Dawarich
+      dawarich_logo: Logotip de Voyage
   map:
     onboarding_modal:
       invite_your_family: "Convida la teva família"
@@ -1741,9 +1741,9 @@ ca:
       poster: Pòster
       video: Vídeo
     footer:
-      dawarich: Dawarich
+      dawarich: Voyage
     legal_footer:
-      dawarich: Dawarich
+      dawarich: Voyage
       made_and_hosted_in_europe: "Fet i allotjat a 🇪🇺 Europa"
       copyright: Copyright ©
       zeitflow_ug: ZeitFlow UG
@@ -1771,8 +1771,8 @@ ca:
       family: Família
       my_data: Les meves dades
       help: Ajuda
-      dawarich: Dawarich
-      dawarich_logo: Logotip de Dawarich
+      dawarich: Voyage
+      dawarich_logo: Logotip de Voyage
       get_started: Comença
       finish_setting_up_your_account: Acaba de configurar el teu compte
       finish_signup: Acaba el registre
@@ -2075,7 +2075,7 @@ ca:
       cities_visited: 'Ciutats visitades:'
       more: més
       powered_by: Impulsat per
-      dawarich: Dawarich
+      dawarich: Voyage
       your_personal_memories_mapper: ", el teu mapejador de records personal."
       day: Dia
       distance: Distància
@@ -2280,7 +2280,7 @@ ca:
         all_time_stats: Estadístiques de tots els temps
         total_distance: Distància total
         track_your_own_adventures_with: Fes seguiment de les teves pròpies aventures amb
-        dawarich: Dawarich
+        dawarich: Voyage
         your_personal_memories_mapper: "— el teu mapejador de records personal."
         month: Mes
         distance: Distància

@@ -1072,7 +1072,7 @@ fr:
         other: "Votre famille compte désormais %{count} membres."
   home:
     index:
-      dawarich: Dawarich
+      dawarich: Voyage
       the_only_location_history_tracker_you_ll_ever_need: L'unique suivi d'historique
         de localisation dont vous aurez jamais besoin.
       or: ou
@@ -1482,7 +1482,7 @@ fr:
       you_re_viewing_demo_data: Vous consultez des données de démonstration.
       delete: Supprimer
     shared:
-      dawarich: Dawarich
+      dawarich: Voyage
       try_dawarich_cloud: Essayer Dawarich Cloud
       shared_with_dawarich: Partagé avec Dawarich
       map_your_own_journeys: Cartographiez vos propres parcours.
@@ -1495,7 +1495,7 @@ fr:
       self_hostable: Auto-hébergeable
       managed_cloud_no_setup: Cloud géré — sans configuration
       shared_on_dawarich: Partagé sur Dawarich
-      dawarich_logo: Logo Dawarich
+      dawarich_logo: Logo Voyage
   map:
     onboarding_modal:
       invite_your_family: "Invitez votre famille"
@@ -2569,9 +2569,9 @@ fr:
     flash_message:
       close: Fermer
     footer:
-      dawarich: Dawarich
+      dawarich: Voyage
     legal_footer:
-      dawarich: Dawarich
+      dawarich: Voyage
       made_and_hosted_in_europe: "Fait et hébergé en \U0001F1EA\U0001F1FA Europe"
       copyright: Copyright ©
       zeitflow_ug: ZeitFlow UG
@@ -2595,8 +2595,8 @@ fr:
       family: Famille
       my_data: Mes données
       help: Aide
-      dawarich: Dawarich
-      dawarich_logo: Logo Dawarich
+      dawarich: Voyage
+      dawarich_logo: Logo Voyage
       get_started: Commencer
       finish_setting_up_your_account: Terminer la configuration de votre compte
       finish_signup: Terminer l'inscription
@@ -2942,7 +2942,7 @@ fr:
       cities_visited: 'Villes visitées :'
       more: Plus d'informations
       powered_by: Propulsé par
-      dawarich: Dawarich
+      dawarich: Voyage
       your_personal_memories_mapper: ", votre cartographe personnel de souvenirs."
       day: Jour
       distance: Distance
@@ -3165,7 +3165,7 @@ fr:
         all_time_stats: Statistiques toutes les années
         total_distance: Distance totale
         track_your_own_adventures_with: Suivez vos propres aventures avec
-        dawarich: Dawarich
+        dawarich: Voyage
         your_personal_memories_mapper: "— votre cartographe de souvenirs personnels."
         month: Mois
         distance: Distance

@@ -35,7 +35,7 @@
       "background_color": "#ffffff",
       "theme_color": "#ffffff",
       "manifest": {
-        "name": "Dawarich",
+        "name": "Voyage",
         "display": "standalone",
         "orientation": "not_set",
         "on_conflict": "override",

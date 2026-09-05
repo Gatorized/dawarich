@@ -473,7 +473,7 @@ en:
       tip_you_can_manage_your_family_members_and_privacy_settings: 'TIP: You can manage your family members and privacy settings at any time from your family dashboard.'
   home:
     index:
-      dawarich: Dawarich
+      dawarich: Voyage
       the_only_location_history_tracker_you_ll_ever_need: The only location history tracker you'll ever need.
       or: or
       location_history_visualisation: Location history visualisation
@@ -811,7 +811,7 @@ en:
       you_re_viewing_demo_data: You're viewing demo data.
       delete: Delete
     shared:
-      dawarich: Dawarich
+      dawarich: Voyage
       try_dawarich_cloud: Try Dawarich Cloud
       shared_with_dawarich: Shared with Dawarich
       map_your_own_journeys: Map your own journeys.
@@ -821,7 +821,7 @@ en:
       self_hostable: Self-hostable
       managed_cloud_no_setup: Managed Cloud — no setup
       shared_on_dawarich: Shared on Dawarich
-      dawarich_logo: Dawarich logo
+      dawarich_logo: Voyage logo
   map:
     onboarding_modal:
       invite_your_family: "Invite your family"
@@ -1741,9 +1741,9 @@ en:
       poster: Poster
       video: Video
     footer:
-      dawarich: Dawarich
+      dawarich: Voyage
     legal_footer:
-      dawarich: Dawarich
+      dawarich: Voyage
       made_and_hosted_in_europe: "Made and hosted in \U0001F1EA\U0001F1FA Europe"
       copyright: Copyright ©
       zeitflow_ug: ZeitFlow UG
@@ -1771,8 +1771,8 @@ en:
       family: Family
       my_data: My data
       help: Help
-      dawarich: Dawarich
-      dawarich_logo: Dawarich logo
+      dawarich: Voyage
+      dawarich_logo: Voyage logo
       get_started: Get started
       finish_setting_up_your_account: Finish setting up your account
       finish_signup: Finish signup
@@ -2075,7 +2075,7 @@ en:
       cities_visited: 'Cities visited:'
       more: more
       powered_by: Powered by
-      dawarich: Dawarich
+      dawarich: Voyage
       your_personal_memories_mapper: ", your personal memories mapper."
       day: Day
       distance: Distance
@@ -2280,7 +2280,7 @@ en:
         all_time_stats: All-Time Stats
         total_distance: Total distance
         track_your_own_adventures_with: Track your own adventures with
-        dawarich: Dawarich
+        dawarich: Voyage
         your_personal_memories_mapper: "— your personal memories mapper."
         month: Month
         distance: Distance

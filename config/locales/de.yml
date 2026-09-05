@@ -2606,7 +2606,7 @@ de:
     am: vormittags
     pm: nachmittags
   common:
-    app_name: Dawarich
+    app_name: Voyage
     not_available: N/A
     time_ago: "vor %{time}"
     time_from_now: "in %{time}"

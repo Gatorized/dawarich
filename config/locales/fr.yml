@@ -3558,7 +3558,7 @@ fr:
       delete_this_visit_your_location_points_stay: Voulez-vous supprimer cette visite ?
         Vos points de localisation resteront.
   common:
-    app_name: Dawarich
+    app_name: Voyage
     not_available: N/A
     time_ago: "il y a %{time}"
     time_from_now: "dans %{time}"

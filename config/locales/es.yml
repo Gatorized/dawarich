@@ -2551,7 +2551,7 @@ es:
       human_with_seconds: "%e %b %Y, %H:%M:%S"
       short_with_time: "%d %b a las %H:%M"
   common:
-    app_name: Dawarich
+    app_name: Voyage
     not_available: No disponible
     time_ago: "hace %{time}"
     time_from_now: "dentro de %{time}"
@@ -2640,7 +2640,7 @@ es:
       more_pages:
         display_entries: Mostrando %{entry_name} <b>%{first}&nbsp;–&nbsp;%{last}</b> de un total de <b>%{total}</b>
     application:
-      full_title: "%{page_title} | %{app_name} - Dawarich"
+      full_title: "%{page_title} | %{app_name}"
       expired: Vencido
       days_left:
         one: "%{count} días left"

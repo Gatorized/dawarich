@@ -2546,7 +2546,7 @@ en:
       human_with_seconds: "%e %b %Y, %H:%M:%S"
       short_with_time: "%b %d at %I:%M %p"
   common:
-    app_name: Dawarich
+    app_name: Voyage
     not_available: N/A
     time_ago: "%{time} ago"
     time_from_now: "%{time} from now"

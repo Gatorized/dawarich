@@ -2601,7 +2601,7 @@ pl:
     am: przed południem
     pm: po południu
   common:
-    app_name: Dawarich
+    app_name: Voyage
     not_available: N/A
     time_ago: "%{time} temu"
     time_from_now: za %{time}

@@ -1798,8 +1798,8 @@ ca:
       map: Mapa
       trips: Viatges
       stats: Estadístiques
-      insights_sup_sup_html: Anàlisi<sup>α</sup>
-      family_sup_sup_html: Família<sup>α</sup>
+      insights_sup_sup_html: Anàlisi
+      family_sup_sup_html: Família
       points: Punts
       places: Llocs
       imports: Importacions

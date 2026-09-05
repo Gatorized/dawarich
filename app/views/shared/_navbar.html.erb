@@ -57,7 +57,7 @@
     </details>
     <%= link_to (user_signed_in? ? preferred_map_path : root_path), class: 'btn btn-ghost normal-case text-xl gap-2' do %>
       <%= image_tag 'logo.svg', alt: t('.dawarich_logo'), class: 'h-8 w-8 rounded-[20%]' %>
-      <span><%= t('.dawarich') %><sup>β</sup></span>
+      <span><%= t('.dawarich') %></span>
     <% end %>
     <%= render "shared/navbar/version_indicator" %>
 
@@ -77,7 +77,7 @@
         <li>
           <% if current_user.in_family? %>
             <%= link_to family_home_path, class: "mx-1 #{active_class?(family_home_path)} flex items-center space-x-2" do %>
-              <span><%= t('.family') %><sup>α</sup></span>
+              <span><%= t('.family') %></span>
               <%= render 'families/navbar_indicator', user: current_user %>
             <% end %>
           <% else %>

@@ -2628,8 +2628,8 @@ fr:
       map: Carte
       trips: Vos déplacements
       stats: Statistiques
-      insights_sup_sup_html: Analyses<sup>α</sup>
-      family_sup_sup_html: Famille<sup>α</sup>
+      insights_sup_sup_html: Analyses
+      family_sup_sup_html: Famille
       points: Points
       places: Lieux
       imports: Importations

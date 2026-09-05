@@ -1801,8 +1801,8 @@ de:
       map: Karte
       trips: Reisen
       stats: Statistiken
-      insights_sup_sup_html: Einblicke<sup>α</sup>
-      family_sup_sup_html: Familie<sup>α</sup>
+      insights_sup_sup_html: Einblicke
+      family_sup_sup_html: Familie
       points: Punkte
       places: Orte
       imports: Importe

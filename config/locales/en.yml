@@ -1798,8 +1798,8 @@ en:
       map: Map
       trips: Trips
       stats: Stats
-      insights_sup_sup_html: Insights<sup>α</sup>
-      family_sup_sup_html: Family<sup>α</sup>
+      insights_sup_sup_html: Insights
+      family_sup_sup_html: Family
       points: Points
       places: Places
       imports: Imports

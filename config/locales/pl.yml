@@ -1798,8 +1798,8 @@ pl:
       map: Mapa
       trips: Podróże
       stats: Statystyki
-      insights_sup_sup_html: Analityka<sup>α</sup>
-      family_sup_sup_html: Rodzina<sup>α</sup>
+      insights_sup_sup_html: Analityka
+      family_sup_sup_html: Rodzina
       points: Punkty
       places: Miejsca
       imports: Importy
